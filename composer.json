@@ -1,0 +1,17 @@
+{
+    "name": "hanna/app-admin",
+    "autoload": {
+        "psr-4": {
+            "Hanna\\AppAdmin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "RodolfoBravo",
+            "email": "rodolfobravogarcia@gmail.com"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^6.10"
+    }
+}

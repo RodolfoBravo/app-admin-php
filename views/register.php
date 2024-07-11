@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password']; // Obtener el password sin encriptar
     $role = $_POST['role'];
-    $createDate = date('Y-m-d H:i:s'); // Fecha y hora actual
 
     // Encriptar el password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -23,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $conn = Database::getConnection();
 
     // Preparar la consulta SQL
-    $stmt = $conn->prepare("INSERT INTO users (firstName, lastName, email, password, role, createDate) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $firstName, $lastName, $email, $hashedPassword, $role, $createDate);
+    $stmt = $conn->prepare("INSERT INTO users (firstName, lastName, email, password, role ) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $firstName, $lastName, $email, $hashedPassword, $role,);
 
     // Ejecutar la consulta
     if ($stmt->execute()) {
